@@ -1,0 +1,57 @@
+<editor>
+<help>/commander/pages/@PLUGIN_NAME@/@PLUGIN_KEY@_help?s=Administration&amp;ss=Plugins#CheckoutCode</help>
+    <formElement>
+        <type>entry</type>
+        <label>Configuration:</label>
+        <property>config</property>
+        <documentation>The SCM configuration to use.</documentation>
+        <required>1</required>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Brach Location:</label>
+        <property>branch_location</property>
+        <documentation>The branch to checkout.</documentation>
+    </formElement>
+    <formElement>
+        <type>checkbox</type>
+        <checkedValue>1</checkedValue>
+        <uncheckedValue>0</uncheckedValue>
+        <label>Lightweight checkout:</label>
+        <property>lightweight</property>
+        <documentation>Perform a lightweigth checkout.</documentation>
+        <required>0</required>
+    </formElement>
+    <formElement>
+        <type>checkbox</type>
+        <checkedValue>1</checkedValue>
+        <uncheckedValue>0</uncheckedValue>
+        <label>Quiet checkout:</label>
+        <property>quiet</property>
+        <documentation>Only display errors and warnings.</documentation>
+        <required>0</required>
+    </formElement>       
+    <formElement>
+        <type>entry</type>
+        <label>Destination Directory:</label>
+        <property>dest</property>
+        <documentation>A path relative to the job's workspace, where the source tree will be created.</documentation>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Revision:</label>
+        <property>revision</property>
+        <required>0</required>
+        <documentation>The revision to use.</documentation>
+    </formElement>
+    <formElement>
+        <type>checkbox</type>
+        <checkedValue>1</checkedValue>
+        <uncheckedValue>0</uncheckedValue>
+        <label>Verbose:</label>
+        <property>verbose</property>
+        <documentation>Display more information.</documentation>
+        <required>0</required>
+    </formElement>      
+
+</editor>

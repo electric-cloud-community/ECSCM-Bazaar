@@ -1,0 +1,23 @@
+<editor>
+    <formElement>
+        <type>entry</type>
+        <label>Configuration Name:</label>
+        <property>config</property>
+        <required>1</required>
+        <documentation>Provide a unique name for the configuration, keeping in mind that you may need to create additional configurations over time.</documentation>
+    </formElement>
+    <formElement>
+        <type>textarea</type>
+        <label>Description:</label>
+        <property>description</property>
+        <value>Bazaar configuration</value>
+        <documentation>This is a text description for your reference only. Commander does not use this information.</documentation>
+    </formElement> 
+    <formElement>
+        <type>credential</type>
+        <label>Login As:</label>
+        <property>credential</property>
+        <documentation>This is optional, if you are not using credentials you can leave it blank. For example, you may be using a special "read-only" user name similar to "Build" for your user name.</documentation>
+    </formElement>
+</editor>
+

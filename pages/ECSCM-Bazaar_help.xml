@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Windows (vers 25 March 2009), see www.w3.org" />
+
+  <title>Electric Commander Plugin for Bazaar</title>
+  <link rel="stylesheet" href=
+  "../../plugins/@PLUGIN_KEY@/pluginhelp.css" type="text/css"
+  media="screen" />
+</head>
+
+<body>
+  <div class="help">
+    <h1>Bazaar</h1>
+
+    <p>Plugin Version @PLUGIN_VERSION@</p>
+    <hr style=
+    "margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;"
+    noshade="noshade" />
+
+    <p>Bazaar is a version control system that helps you track
+    project history over time&lt;./p&gt;</p>
+
+    <h2>Bazaar Links</h2>
+
+    <p>More information can be found at <a href=
+    "http://bazaar.canonical.com/en/">this website</a>.</p>
+
+    <p><a href=
+    "http://doc.bazaar.canonical.com/latest/en/user-guide/">Bazaar
+    Technical Documentation</a></p>
+
+    <h2>Electric Commander Integration to Bazaar</h2>
+
+    <p>The plugin allows ElectricCommander to communicate with your
+    Bazaar server. This plugin enables you to perform code
+    checkout, preflight actions, and continuous integration.</p>
+
+    <p>Using the plugin will allow you to have different
+    configurations, the preflight and also the sentry, all those
+    functions will be more difficult to implement without the
+    plugin.</p>
+
+    <h2>Integrated Version</h2>
+
+    <p>This plugin was developed and tested against Bazaar version
+    2.3.1.</p>
+
+    <h1>Plugin Procedures</h1>
+
+    <p>IMPORTANT: For all parameter descriptions below, required
+    parameters are shown in <span class='required'>bold
+    italics</span>.</p>
+
+    <h2>Plugin Configuration</h2>
+
+    <p>Plugin configurations are sets of parameters that apply
+    across some or all of the plugin's procedures. They are
+    intended to reduce repetition of common values, create
+    predefined sets of parameters for end users, and to securely
+    store credentials where needed. Each configuration is given a
+    unique name that is entered in designated parameters on
+    procedures that use them.<br />
+    Plugin configurations are created by going to the Electric
+    Commander "Administration" tab, then to the "Source Control"
+    sub-tab.</p>
+    <!-- For all parameters, the parameter name should be *exactly* the same as it appears in the
+    Parameter Panel, and the first sentence(s) of the description should be
+    the same as the tooltip (if there is one). After that, the parameter
+    description can go into greater detail about the parameter including
+    valid value ranges and examples.
+    -->
+
+    <div id="CreateConfiguration"><a name="CreateConfiguration" id=
+    "CreateConfiguration"></a>
+
+    <h3>Create Configuration</h3>
+
+    <table class='grid'>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+
+          <th>Description</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td class="required">Configuration Name</td>
+
+          <td>Provide a unique name for the configuration, keeping
+          in mind that you may need to create additional
+          configurations over time. (Required)</td>
+        </tr>
+
+        <tr>
+          <td>Description</td>
+
+          <td>This is a text description for your reference only.
+          Commander does not use this information.</td>
+        </tr>
+
+        <tr>
+          <td>Login As</td>
+
+          <td>This is optional, if you are not using credentials
+          you can leave it blank. For example, you may be using a
+          special "read-only" user name similar to "Build" for your
+          user name.</td>
+        </tr>
+      </tbody>
+    </table><img src=
+    "../../plugins/@PLUGIN_KEY@/images/configuration.png" alt=
+    "Configuration Form" /></div>
+
+    <h2>Plugin Procedures</h2>
+
+    <div id="CheckoutCode"><a name="CheckoutCode" id=
+    "CheckoutCode"></a>
+
+    <h3>CheckoutCode</h3>
+
+    <p>Downloads a copy of the repository to the machine.</p>
+
+    <table class='grid'>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+
+          <th>Description</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td class="required">Configuration</td>
+
+          <td>The SCM configuration to use. (Required)</td>
+        </tr>
+
+        <tr>
+          <td>Brach Location</td>
+
+          <td>The branch to checkout.</td>
+        </tr>
+
+        <tr>
+          <td>Lightweight checkout</td>
+
+          <td>Perform a lightweigth checkout.</td>
+        </tr>
+
+        <tr>
+          <td>Quiet checkout</td>
+
+          <td>Only display errors and warnings.</td>
+        </tr>
+
+        <tr>
+          <td>Destination Directory</td>
+
+          <td>A path relative to the job's workspace, where the
+          source tree will be created.</td>
+        </tr>
+
+        <tr>
+          <td>Revision</td>
+
+          <td>The revision to use.</td>
+        </tr>
+
+        <tr>
+          <td>Verbose</td>
+
+          <td>Display more information.</td>
+        </tr>
+      </tbody>
+    </table><img src=
+    "../../plugins/@PLUGIN_KEY@/images/checkout.png" alt=
+    "Checkout Form" /></div>
+
+    <div id="getSCMTag"><a name="getSCMTag" id="getSCMTag"></a>
+
+    <h3>Sentry Schedule</h3>
+
+    <p>This procedure is used for Continuous Integration. This will
+    monitor the repository to discover whether something changed,
+    and trigger a preconfigured procedure.</p>
+
+    <table class='grid'>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+
+          <th>Description</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td class="required">Configuration</td>
+
+          <td>Provide the name of the saved SCM configuration.
+          (Required)</td>
+        </tr>
+
+        <tr>
+          <td>Branch</td>
+
+          <td>The branch to monitor.</td>
+        </tr>
+      </tbody>
+    </table><img src="../../plugins/@PLUGIN_KEY@/images/sentry.png"
+    alt="Sentry Form" /></div>
+
+    <div id="Preflight"><a name="Preflight" id="Preflight"></a>
+
+    <h3>Preflight (agent side)</h3>
+
+    <p>This will excecute the agent side of the preflight.</p>
+
+    <table class='grid'>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+
+          <th>Description</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td class="required">Configuration</td>
+
+          <td>The SCM configuration to use (Required)</td>
+        </tr>
+
+        <tr>
+          <td>Destination directory</td>
+
+          <td>A path relative to the job's workspace, where the
+          source tree will be created.</td>
+        </tr>
+      </tbody>
+    </table><img src=
+    "../../plugins/@PLUGIN_KEY@/images/preflight.png" alt=
+    "Extract Preflight Sources Form" /></div>
+
+    <div id="cpf_driver">
+      <a name="cpf_driver" id="cpf_driver"></a>
+
+      <h3>Preflight (client side)</h3>
+
+      <p>This will excecute the client part of the preflight.</p>
+
+      <table class='grid'>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+
+            <th>Description</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>workdir</td>
+
+            <td>Supply the path to the developer working
+            directory.</td>
+          </tr>
+
+          <tr>
+            <td>method</td>
+
+            <td>Specify the method used to detect changes, the
+            possible values are, local and remote. The remote will
+            get the diff between the working directory and the
+            remote branch. The local method will check the working
+            directory only.</td>
+          </tr>
+
+          <tr>
+            <td>branch</td>
+
+            <td>Specify the branch to fetch Bazaar.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h1>Examples and Use Cases</h1><br />
+
+    <h2>Configuring a sentry schedule Form</h2>
+
+    <p>In the project, select the "schedules" tab, then in the
+    pop-up select the "SCM" type.</p><img src=
+    "../../plugins/@PLUGIN_KEY@/images/sentry-1.png" alt="" />
+
+    <p>Select an step name, in this case we used
+    "Components-sentry", also select a Bazaar configuration. Then
+    you should select the procedure that will be run when the
+    sentry is triggered. In this case we chose the project "Bazaar
+    Example" and the procedure name inside the project called
+    "runWithSentry", this procedure just echoes a "hello
+    world"</p><img src=
+    "../../plugins/@PLUGIN_KEY@/images/sentry-2.png" alt="" />
+
+    <p>After that you should fill the form, to inform the sentry
+    monitor, which client we need to monitor. In this example we
+    want to monitor the client, this means that every time that
+    someone submits a changelist the sentry will trigger our
+    "runWithSentry" procedure.</p><img src=
+    "../../plugins/@PLUGIN_KEY@/images/sentry-3.png" alt="" />
+
+    <p>The schedule should look like this.</p><img src=
+    "../../plugins/@PLUGIN_KEY@/images/sentry-4.png" alt="" />
+
+    <p>If something changes in the client the sentry monitor will
+    display something like this if you select the job from the jobs
+    tab.</p><img src=
+    "../../plugins/@PLUGIN_KEY@/images/sentry-5.png" alt="" />
+
+    <p>This is the log of the sentry monitor, it says that a job
+    was started by the schedule "Components-Sentry" in the "Bazaar
+    Example" project.</p><img src=
+    "../../plugins/@PLUGIN_KEY@/images/sentry-6.png" alt="" />
+
+    <p>The runWithSentry job, should be visible now from the jobs
+    tab.</p><img src=
+    "../../plugins/@PLUGIN_KEY@/images/sentry-7.png" alt="" />
+
+    <h1>Release Notes</h1>
+
+    <h2>@PLUGIN_KEY@ 2.0.1</h2>
+
+    <ul>
+      <li>Step chooser name cleanup</li>
+    </ul>
+
+    <h2>@PLUGIN_KEY@-2.0.0</h2>
+
+    <ul>
+      <li>Updated help page.</li>
+
+      <li>Added step picker.</li>
+
+      <li>Added XML panels.</li>
+
+      <li>Added help links.</li>
+    </ul>
+
+    <h2>@PLUGIN_KEY@-1.0.0</h2>
+
+    <ul>
+      <li>SCM features - Sentry</li>
+
+      <li>SCM features - Checkout</li>
+
+      <li>SCM features - Preflight</li>
+    </ul>
+  </div>
+</body>
+</html>
