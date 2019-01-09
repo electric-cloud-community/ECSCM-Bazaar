@@ -323,7 +323,7 @@ sub setup_branch {
             }elsif ($branch_location =~ m/http:/i) {
                 substr $branch_location, length ('http://'), 0, $user_pass; 
             }       
-        } else { #it´s a local path
+        } else { #it's a local path
            $branch_location = "\"$branch_location\"";
         }
     }    
